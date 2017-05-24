@@ -1,0 +1,213 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="css.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js.js"></script>
+
+    <title>Samantha Lyons</title>
+</head>
+<body>
+  
+  <div class="container1">
+
+      <div class="logout">
+      <button><a href="index.html">LOGOUT</a></button>
+      </div>
+
+      <div class="dive">
+      <img src="images/logowithoutback.png" alt="mydive">
+      </div>
+
+  <ul>
+  <center><li><a class="active" href="home.html">Makara</a></li></center>
+  <center><li><a href="redRocks.html">Red Rocks</a></li></center>
+</ul>
+
+<div id="wrapper">
+
+
+    <div id="leftcolumn">
+    <h1 style="color:white; padding-top: 20%; padding-left: 3%;">myLocations</h1>
+
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDGAywwzUjnQCcofuCwAYqEPz-00B49YKs'></script>
+    <div style='overflow:hidden;height:300px;width:350px;'>
+    <div id='gmap_canvas' style='height:300px;width:350px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
+    <script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(-41.3575,174.7265),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-41.3575,174.7265)});infowindow = new google.maps.InfoWindow({content:'<strong>Makara</strong><br>Makara Beach <br> Wellington<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+
+
+</div>
+  
+  
+  
+  <div id="rightcolumn">
+    <form id="form1">
+        <div>
+          
+            <!--<input type="submit" id="btnMarineWeatherFree" value="Can I Dive At Makara Today?" /> -->
+            <br />
+            <br />
+            <div id="resultContainer">
+            </div>
+      <h3 class="swell-height"></h3> <!--make into classes for each one-->
+      
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="./script/freeAPI.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var resultContainer = $('#resultContainer');
+    var output = '';
+
+    $(document).ready(function () {
+
+     
+        //$('#btnMarineWeatherFree').click(GetMarineWeather);
+        GetMarineWeather();
+
+    });
+
+   
+    //------------ MARINE WEATHER ----------------
+
+    function GetMarineWeather(e) {
+
+        var marineWeatherInput = {
+            query: '41.3575,174.7265',
+            format: 'JSON',
+            fx: '',
+            callback: 'MarineWeatherCallback'
+        };
+
+        JSONP_MarineWeather(marineWeatherInput);
+        e.preventDefault();
+    }
+
+    function MarineWeatherCallback(marineWeather) {
+
+        var dive;
+        var swellHeight = marineWeather.data.weather[0].hourly[0].swellHeight_m;
+        var minTemp = marineWeather.data.weather[0].mintempC;
+
+        var windSpeed = marineWeather.data.weather[0].hourly[0].windspeedKmph;
+        console.log(marineWeather.data);
+        var windDirection = marineWeather.data.weather[0].hourly[0].winddir16Point;  
+        var swellDirection = marineWeather.data.weather[0].hourly[0].swellDir;
+        var sigwaveHeight = marineWeather.data.weather[0].hourly[0].sigHeight_m;
+        var waterTemperature = marineWeather.data.weather[0].hourly[0].waterTemp_C;
+    
+
+    function canIDive() {
+      if(swellHeight < 0.5 && minTemp > 2) {
+        dive = "YES, CONDITIONS ARE SAFE FOR DIVING";
+         $(".swell-height").css("color", "green");
+
+      } else {
+        dive = "NO, CONDITIONS ARE NOT SAFE FOR DIVING";
+        $(".swell-height").css("color", "red");
+      }
+    }
+    
+    canIDive();
+
+          output += "<br/> Min Temp (c): " + marineWeather.data.weather[0].mintempC;
+
+          output += "<br/> Max Temp (c): " + marineWeather.data.weather[0].maxtempC;
+
+          output += "<br/> Water Temperature (c): " + marineWeather.data.weather[0].hourly[0].waterTemp_C;
+
+
+
+        output += "<br/> Significant Wave Height: " + marineWeather.data.weather[0].hourly[0].sigHeight_m
+
+        output += "<br/> Swell Height: " + marineWeather.data.weather[0].hourly[0].swellHeight_m;
+
+        output += "<br/> Swell Direction: " + marineWeather.data.weather[0].hourly[0].swellDir
+
+
+
+        output += "<br/> Wind Speed: " + marineWeather.data.weather[0].hourly[0].windspeedKmph;
+
+        output += "<br/> Wind Direction: " + marineWeather.data.weather[0].hourly[0].winddir16Point;
+
+        
+
+        
+
+        $(".swell-height").text(dive); //j query selecter. if i want it to show data instead of no, enter line above
+
+
+    
+
+        resultContainer.empty();
+        resultContainer.html(output);
+
+    }
+
+
+
+    //-------------------------------------------
+
+    
+</script>
+</div>
+</div>
+</form>
+
+
+
+
+
+    <!-- <html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<title>Reverse Geocoding</title> 
+
+<script type="text/javascript"
+  src="http://maps.googleapis.com/maps/api/js?libraries=weather&sensor=false">
+</script>
+<script type="text/javascript" src="./api.js"></script>
+   <body onload="initialize()"> 
+
+ <div class="container-fluid">
+ <div class="row top-cont-wrapper">
+
+<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 forecast-block">
+<h2 id="city"></h2>
+<div class="media">
+  <div class="media-left">
+    <span class="media-holder">
+      <img id="cImage" src="http://cdn.worldweatheronline.net/images/weather/small/116_day_sm.png" alt="Partly Cloudy "></span>
+  </div>
+  <div class="media-body">
+    <p class="media-heading" id="desc">Partly Cloudy </p>
+    <p class="temperature" id="temcf">11&deg;C | 52 &deg;F</p>
+    <p id="precip">Precip 0.00 mm | 0.00 Inches</p>
+    <p id="wind">Wind: NNE at 4.3 mph/6.8 km/h</p>
+  <p id="hum">Humidity: 87 %</p></div>
+  </div>
+  <div class="myClass">
+    <div class="next-day"><p class="media-heading">Tomorrow</p>
+      <img id="tImage" src="http://cdn.worldweatheronline.net/images/weather/small/176_day_sm.png" />
+      <p id="tMin">24&deg;C | 73&deg;F</p>
+      <p id="tMax">25&deg;C | 73&deg;F</p></div>
+    <div class="next-day"><p class="media-heading">After tomorrow</p>
+      <img id="atImage" src="http://cdn.worldweatheronline.net/images/weather/small/176_day_sm.png" />
+      <p id="atMin">21&deg;C | 69&deg;F</p>
+      <p id="atMax">23&deg;C | 73&deg;F</p></div>
+  </div>
+   </div>
+   </div>
+      </div>
+</body> 
+</html> 
+    </div> -->
+
+
+
+
+</body>
+</html>
+
+
+

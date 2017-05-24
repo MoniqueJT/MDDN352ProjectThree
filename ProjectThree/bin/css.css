@@ -1,0 +1,261 @@
+#wrapperHeader{
+    position: relative;
+}
+
+#header{
+    background-image: url("images/logowithoutback.png");
+    width: 60%;
+    height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0 0 25%;
+    background-repeat: no-repeat;
+    float: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+body {
+    background-image: url("images/underwater.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+} 
+
+ul {
+    height: auto;
+    width: 100%;
+    list-style-type: none;
+    overflow: hidden;
+    float: center;
+    padding-left: 40%;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 5%;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: grey;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #00459E;
+  max-width: 360px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #5D8896;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  color: black;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #85B0BE;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+
+a {
+    text-decoration:none;
+    font-family:Arial;
+    display: block;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container1 {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+  .dive {
+    padding-right: 25%;
+    float: right;
+    width: 50%;
+    height: auto;
+  }
+
+  .logout {
+    float: right;
+    padding-left: 30%;
+  }
+
+#wrapper {
+     width: 1005px;
+     height: auto;
+     margin: 0 auto;
+     padding: 0;
+     overflow: auto;
+}
+
+#leftcolumn {
+     float: left;
+     width: 300px;
+     height: auto;
+     padding: 0;
+     margin: 0;
+     display: block;
+     position: fixed;
+}
+
+#rightcolumn {
+     float: right;
+     width: 60%;
+     height: auto;
+     display: block;
+     padding-top: 10%;
+}
+
+
+
+
+
+/*
+.myClass{
+ position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  border: 2px solid #ffffff;
+  padding: 2% 1% 2% 1%;
+  margin: 0 auto 0.7% auto; 
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.3em;
+  box-shadow: .2em .2em .2em #444;
+  
+}*/
+
+
+/*
+.myClass p{
+  margin-right:50px;
+}*/
+
+
+
+@media print {
+body { font-size: 10pt }
+}
+
+@media screen and (max-width: 1200px) {  /*Laptop Size*/
+
+}
+
+
+@media screen and (max-width: 900px) { /*Tablet Size*/
+
+}
+
+@media screen and (max-width: 400px) {  /*Mobile Size*/
+
+  nav ul {
+    display: none;
+  }
+  nav select {
+    display: inline-block;
+  }
+
+}
+
